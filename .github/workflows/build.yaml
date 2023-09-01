@@ -3,7 +3,7 @@ name: "yama-build"
 on:
   push:
     branches:
-      - "main"
+    # - "main"
       - "testing-APT10_ANEL_InitRoutine"
     paths:
       - "dependencies/**"
