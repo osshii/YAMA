@@ -1,12 +1,13 @@
-rule APT10_ANEL_InitRoutine {
+rule APT10_redleaves_strings {
       meta:
-        description = "ANEL malware"
+        description = "RedLeaves malware"
         author = "JPCERT/CC Incident Response Group"
-        hash = "2371f5b63b1e44ca52ce8140840f3a8b01b7e3002f0a7f0d61aecf539566e6a1"
+        hash = "ff0b79ed5ca3a5e1a9dabf8e47b15366c1d0783d0396af2cbba8e253020dbb34"
 
     	strings:
-    		$GetAddress = { C7 45 ?? ?? 69 72 74 C7 45 ?? 75 61 6C 50 C7 45 ?? 72 6F 74 65 66 C7 45 ?? 63 74 [3-4] C7 45 ?? ?? 65 72 6E C7 45 ?? 65 6C 33 32 C7 45 ?? 2E 64 6C 6C [3-4] FF 15 ?? ?? ?? ?? 50 FF 15 ?? ?? ?? ?? }
+    		$v1a = "red_autumnal_leaves_dllmain.dll"
+        $w1a = "RedLeavesCMDSimulatorMutex" wide
 
     	condition:
-    		$GetAddress
+    		$v1a or $w1a
 }
